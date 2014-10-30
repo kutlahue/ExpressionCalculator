@@ -27,8 +27,8 @@ public class ExpressionCalculator implements ActionListener, Calculator {
 	
 	Frame  modewindow  = new JFrame("Mode Select");
 	JRadioButton ExpressionModeButton = new JRadioButton("Expression Mode");
-    JRadioButton AccumulatingModeButton = new JRadioButton("Accumulating Mode");
-    ButtonGroup modeButtonGroup = new ButtonGroup();
+    	JRadioButton AccumulatingModeButton = new JRadioButton("Accumulating Mode");
+    	ButtonGroup modeButtonGroup = new ButtonGroup();
 	
 	Frame  window      = new JFrame("Accumulating Calculator");
 	
@@ -37,41 +37,41 @@ public class ExpressionCalculator implements ActionListener, Calculator {
 	JPanel sPanel = new JPanel();
 	JPanel cPanel = new JPanel();
 	
-    JButton clearExpButton = new JButton("CLEAR");
-    JButton clearAccButton = new JButton("CLEAR");
+	JButton clearExpButton = new JButton("CLEAR");
+    	JButton clearAccButton = new JButton("CLEAR");
     
-    JLabel     amountLabel     = new JLabel("Enter amount",SwingConstants.RIGHT);
-    JLabel     totalLabel      = new JLabel("Total",SwingConstants.RIGHT);
-    JLabel	   checkLabel	   = new JLabel("Drop .00",SwingConstants.RIGHT);
+    	JLabel     amountLabel     = new JLabel("Enter amount",SwingConstants.RIGHT);
+    	JLabel     totalLabel      = new JLabel("Total",SwingConstants.RIGHT);
+    	JLabel	   checkLabel	   = new JLabel("Drop .00",SwingConstants.RIGHT);
     
-    JLabel     expLabel     	= new JLabel("Enter expression",SwingConstants.RIGHT);
-    JLabel     resultLabel      = new JLabel("Result",SwingConstants.RIGHT);
-    JLabel     forxLabel		= new JLabel("Value for x", SwingConstants.RIGHT);
+    	JLabel     expLabel     	= new JLabel("Enter expression",SwingConstants.RIGHT);
+    	JLabel     resultLabel      = new JLabel("Result",SwingConstants.RIGHT);
+    	JLabel     forxLabel		= new JLabel("Value for x", SwingConstants.RIGHT);
     
-    JTextField amountTextField = new JTextField(8);
-    JTextField totalTextField  = new JTextField(8);
-    JTextField errorTextField  = new JTextField(32);
-    JTextField expTextField	   = new JTextField(16);
-    JTextField resultTextField = new JTextField(8);
-    JTextField forxTextField   = new JTextField(8);
+	JTextField amountTextField = new JTextField(8);
+    	JTextField totalTextField  = new JTextField(8);
+    	JTextField errorTextField  = new JTextField(32);
+    	JTextField expTextField	   = new JTextField(16);
+    	JTextField resultTextField = new JTextField(8);
+    	JTextField forxTextField   = new JTextField(8);
     
-    JCheckBox  decimalCheck = new JCheckBox();
-    JTextArea   logTextArea   = new JTextArea(20,40);//depth(in rows),width(in chars)
-    JScrollPane logScrollPane = new JScrollPane(logTextArea);
-    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-    //end dynamic var block
+    	JCheckBox  decimalCheck = new JCheckBox();
+    	JTextArea   logTextArea   = new JTextArea(20,40);//depth(in rows),width(in chars)
+    	JScrollPane logScrollPane = new JScrollPane(logTextArea);
+    	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+    	//end dynamic var block
     
-    //CMD line loader
-    //-------------------------------------------------------------------------------//
+    	//CMD line loader
+    	//-------------------------------------------------------------------------------//
   	public static void main(String[] args) {
-  		System.out.println("main thread enters main() from command line loader.");
-  		new ExpressionCalculator(); //load rest of program
-  		System.out.println("main thread returning to the command line loader");
-  		
+		System.out.println("main thread enters main() from command line loader.");
+		new ExpressionCalculator(); //load rest of program
+		System.out.println("main thread returning to the command line loader");
+			
   	}
-    //-------------------------------------------------------------------------------//
+    	//-------------------------------------------------------------------------------//
 
-    //-------------------------------------------------------------------------------//
+    	//-------------------------------------------------------------------------------//
 	public ExpressionCalculator() {
 		System.out.println("main thread enters constructor method, called from the NEW program loader.");
 		
@@ -79,72 +79,72 @@ public class ExpressionCalculator implements ActionListener, Calculator {
 		//Accumulator mode panel
 		accpanel.setLayout(new GridLayout(1,7));// 1 row, 7 cols
 		accpanel.add(clearAccButton);
-	    accpanel.add(amountLabel);
-	    accpanel.add(amountTextField);
-	    accpanel.add(totalLabel);
-	    accpanel.add(totalTextField);
-	    accpanel.add(checkLabel);
-	    accpanel.add(decimalCheck);
-	    
-	    //Expression mode panel
-	    exppanel.setLayout(new GridLayout(1,7));// 1 row, 5 cols
-	    exppanel.add(clearExpButton);
-	    exppanel.add(expLabel);
-	    exppanel.add(expTextField);
-	    exppanel.add(forxLabel);
-	    exppanel.add(forxTextField);
-	    exppanel.add(resultLabel);
-	    exppanel.add(resultTextField);
-	    
-	    //errors and log
-	    sPanel.add(errorTextField);
-	    cPanel.add(logScrollPane);
-	    
-	    //Main window and field adjustments
+		accpanel.add(amountLabel);
+		accpanel.add(amountTextField);
+		accpanel.add(totalLabel);
+		accpanel.add(totalTextField);
+		accpanel.add(checkLabel);
+		accpanel.add(decimalCheck);
+		
+		//Expression mode panel
+		exppanel.setLayout(new GridLayout(1,7));// 1 row, 5 cols
+		exppanel.add(clearExpButton);
+		exppanel.add(expLabel);
+		exppanel.add(expTextField);
+		exppanel.add(forxLabel);
+		exppanel.add(forxTextField);
+		exppanel.add(resultLabel);
+		exppanel.add(resultTextField);
+		
+		//errors and log
+		sPanel.add(errorTextField);
+		cPanel.add(logScrollPane);
+		
+		//Main window and field adjustments
 		window.setSize(900,550);
 		window.setLocation(300, 300);
-	    
-	    //Set fonts
-	    logTextArea.setFont(new Font("Times Roman", Font.BOLD, 16));
-	    errorTextField.setFont(new Font("Times Roman", Font.BOLD, 14));
-	    
-	    amountLabel.setFont(new Font("Times Roman", Font.BOLD, 14));
-	    totalLabel.setFont(new Font("Times Roman", Font.BOLD, 14));
-	    checkLabel.setFont(new Font("Times Roman", Font.BOLD, 14));
-	    
-	    expLabel.setFont(new Font("Times Roman", Font.BOLD, 14));
-	    resultLabel.setFont(new Font("Times Roman", Font.BOLD, 14));
-	    
-	    clearExpButton.setFont(new Font("Times Roman", Font.BOLD, 14));
-	    clearAccButton.setFont(new Font("Times Roman", Font.BOLD, 14));
-	    
-	    //Set access
-	    totalTextField.setEditable(false);
-	    errorTextField.setEditable(false);
-	    resultTextField.setEditable(false);
-	    logTextArea.setEditable(false);
-	    
-	    clearExpButton.addActionListener(this);//give clear button our address
-	    clearAccButton.addActionListener(this);//give clear button our address
-	    amountTextField.addActionListener(this);// give amount text field our address
-	    expTextField.addActionListener(this);// give expression text field our address
-
-	    //set button group and window for mode selection
-	    modeButtonGroup.add(ExpressionModeButton);
-	  	modeButtonGroup.add(AccumulatingModeButton);
-	  	
-	  	ExpressionModeButton.addActionListener(this);//give expression mode our address
-	    AccumulatingModeButton.addActionListener(this);//give accumulate mode our address
-	  	    
-	  	ExpressionModeButton.setFont(new Font("Times Roman", Font.BOLD, 14));
-	  	AccumulatingModeButton.setFont(new Font("Times Roman", Font.BOLD, 14));
-	  	    
-	  	modewindow.setSize(250, 100);
-	  	modewindow.setLocation(50, 300);
-	  	((JFrame) modewindow).getContentPane().add(AccumulatingModeButton, "North");
-	  	((JFrame) modewindow).getContentPane().add(ExpressionModeButton, "South");
-	  	((JFrame) modewindow).setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	  	modewindow.setVisible(true);
+		
+		//Set fonts
+		logTextArea.setFont(new Font("Times Roman", Font.BOLD, 16));
+		errorTextField.setFont(new Font("Times Roman", Font.BOLD, 14));
+		
+		amountLabel.setFont(new Font("Times Roman", Font.BOLD, 14));
+		totalLabel.setFont(new Font("Times Roman", Font.BOLD, 14));
+		checkLabel.setFont(new Font("Times Roman", Font.BOLD, 14));
+		    
+		expLabel.setFont(new Font("Times Roman", Font.BOLD, 14));
+		resultLabel.setFont(new Font("Times Roman", Font.BOLD, 14));
+		
+		 clearExpButton.setFont(new Font("Times Roman", Font.BOLD, 14));
+		 clearAccButton.setFont(new Font("Times Roman", Font.BOLD, 14));
+		
+		//Set access
+		totalTextField.setEditable(false);
+		errorTextField.setEditable(false);
+		resultTextField.setEditable(false);
+		logTextArea.setEditable(false);
+		
+		clearExpButton.addActionListener(this);//give clear button our address
+		clearAccButton.addActionListener(this);//give clear button our address
+		amountTextField.addActionListener(this);// give amount text field our address
+		expTextField.addActionListener(this);// give expression text field our address
+		
+		//set button group and window for mode selection
+		modeButtonGroup.add(ExpressionModeButton);
+		modeButtonGroup.add(AccumulatingModeButton);
+		
+		ExpressionModeButton.addActionListener(this);//give expression mode our address
+		AccumulatingModeButton.addActionListener(this);//give accumulate mode our address
+		   
+		ExpressionModeButton.setFont(new Font("Times Roman", Font.BOLD, 14));
+		AccumulatingModeButton.setFont(new Font("Times Roman", Font.BOLD, 14));
+		    
+		modewindow.setSize(250, 100);
+		modewindow.setLocation(50, 300);
+		((JFrame) modewindow).getContentPane().add(AccumulatingModeButton, "North");
+		((JFrame) modewindow).getContentPane().add(ExpressionModeButton, "South");
+		((JFrame) modewindow).setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		modewindow.setVisible(true);
 		
 		System.out.println("after building GUI, main thread returning from constructor to NEW program loader.");
 		
@@ -162,11 +162,11 @@ public class ExpressionCalculator implements ActionListener, Calculator {
 			
 			logTextArea.append(newLine + "CLEARED");
 			// Scroll log all the way to the bottom.  
-		    logTextArea.setCaretPosition(logTextArea.getDocument().getLength());
+			logTextArea.setCaretPosition(logTextArea.getDocument().getLength());
 			
 			return;
 		}
-
+		
 		//when inputting amount to accumulate
 		if (ae.getSource() == amountTextField){ // add amount to total
 			try {
@@ -186,7 +186,7 @@ public class ExpressionCalculator implements ActionListener, Calculator {
 				logTextArea.append(newLine + prevTotal + " + " + enteredAmount.trim() + 
 								   " = " + newTotal);
 				// Scroll log all the way to the bottom.  
-			    logTextArea.setCaretPosition(logTextArea.getDocument().getLength());
+				logTextArea.setCaretPosition(logTextArea.getDocument().getLength());
 				
 				//set field
 				totalTextField.setText(newTotal);
@@ -211,7 +211,7 @@ public class ExpressionCalculator implements ActionListener, Calculator {
 				
 				logTextArea.append(newLine + enteredExpression + " = " + result);
 				// Scroll log all the way to the bottom.  
-			    logTextArea.setCaretPosition(logTextArea.getDocument().getLength());
+				logTextArea.setCaretPosition(logTextArea.getDocument().getLength());
 				
 				//set fields
 				resultTextField.setText(result);
@@ -241,8 +241,8 @@ public class ExpressionCalculator implements ActionListener, Calculator {
 			((JFrame) window).getContentPane().removeAll();
 			((JFrame) window).getContentPane().add(exppanel, "North");
 			((JFrame) window).getContentPane().add(sPanel,"South");
-		    ((JFrame) window).getContentPane().add(cPanel,"Center");
-		    window.setTitle("Expression Calculator");
+			((JFrame) window).getContentPane().add(cPanel,"Center");
+			window.setTitle("Expression Calculator");
 			
 			window.setVisible(true);
 				
@@ -263,8 +263,8 @@ public class ExpressionCalculator implements ActionListener, Calculator {
 			((JFrame) window).getContentPane().removeAll();
 			((JFrame) window).getContentPane().add(accpanel, "North");
 			((JFrame) window).getContentPane().add(sPanel,"South");
-		    ((JFrame) window).getContentPane().add(cPanel,"Center");
-		    window.setTitle("Accumulating Calculator");
+			((JFrame) window).getContentPane().add(cPanel,"Center");
+			 window.setTitle("Accumulating Calculator");
 			
 			window.setVisible(true);
 					
